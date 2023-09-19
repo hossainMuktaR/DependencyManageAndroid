@@ -3,14 +3,17 @@ package com.example.dependencymanageandroid.presentation
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.dependencymanageandroid.domain.UserListUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class UserViewModel(
+@HiltViewModel
+class UserViewModel @Inject constructor(
     private val useCase: UserListUseCase
-): ViewModel(), ViewModelProvider.Factory {
+): ViewModel(){
+
     private val _state = mutableStateOf(UserListState())
     val state: State<UserListState> = _state
 
@@ -21,15 +24,6 @@ class UserViewModel(
                     userList = it,
                     isLoading = false
                 )
-            }
-        }
-    }
-    companion object{
-        fun provideFactory  (
-            useCase: UserListUseCase
-        ): ViewModelProvider.Factory = object : ViewModelProvider.Factory{
-            override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                return UserViewModel(useCase) as T
             }
         }
     }

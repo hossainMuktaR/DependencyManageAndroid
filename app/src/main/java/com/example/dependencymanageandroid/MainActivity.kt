@@ -19,22 +19,21 @@ import com.example.dependencymanageandroid.domain.UserListUseCase
 import com.example.dependencymanageandroid.presentation.UserListScreen
 import com.example.dependencymanageandroid.presentation.UserViewModel
 import com.example.dependencymanageandroid.ui.theme.DependencyManageAndroidTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             DependencyManageAndroidTheme {
-                val useCase = UserListUseCase(UserRepositoryImpl(DemoApi()))
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    val viewModel by viewModels<UserViewModel>{
-                        UserViewModel.provideFactory(useCase)
-                    }
-                   UserListScreen(userListState = viewModel.state.value )
+                    val viewModel by viewModels<UserViewModel>()
+                    UserListScreen(userListState = viewModel.state.value )
                 }
             }
         }

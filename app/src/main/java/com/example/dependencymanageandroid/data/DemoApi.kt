@@ -1,6 +1,8 @@
 package com.example.dependencymanageandroid.data
 
-class DemoApi {
+import javax.inject.Inject
+
+class DemoApi{
     fun getAllUserFromApi(): List<User> {
         return User.userList
     }

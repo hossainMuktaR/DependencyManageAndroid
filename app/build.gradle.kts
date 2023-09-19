@@ -2,6 +2,9 @@
 plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
+
+    alias(libs.plugins.hilt.android)
+    id(libs.plugins.google.devtools.ksp.get().pluginId)
 }
 
 android {
@@ -41,7 +44,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = "1.5.1"
     }
     packaging {
         resources {
@@ -69,4 +72,7 @@ dependencies {
     debugImplementation(libs.ui.test.manifest)
 
     implementation(libs.viewModel.lifecycle)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+    ksp(libs.hilt.android.compiler)
 }
