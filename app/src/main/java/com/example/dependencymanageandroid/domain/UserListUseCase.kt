@@ -2,8 +2,9 @@ package com.example.dependencymanageandroid.domain
 
 import com.example.dependencymanageandroid.data.User
 import kotlinx.coroutines.delay
+import javax.inject.Inject
 
-class UserListUseCase(
+class UserListUseCase @Inject constructor(
     private val repository: UserRepository
 ) {
     suspend operator fun invoke(): List<User>{
