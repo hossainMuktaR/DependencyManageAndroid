@@ -7,7 +7,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.dependencymanageandroid.domain.UserListUseCase
 import kotlinx.coroutines.launch
+import org.koin.android.annotation.KoinViewModel
 
+@KoinViewModel
 class UserViewModel(
     private val useCase: UserListUseCase
 ): ViewModel(){

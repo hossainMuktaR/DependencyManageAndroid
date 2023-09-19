@@ -2,7 +2,9 @@ package com.example.dependencymanageandroid.domain
 
 import com.example.dependencymanageandroid.data.User
 import kotlinx.coroutines.delay
+import org.koin.core.annotation.Single
 
+@Single
 class UserListUseCase(
     private val repository: UserRepository
 ) {

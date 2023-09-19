@@ -3,7 +3,6 @@ package com.example.dependencymanageandroid
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -17,7 +16,7 @@ import com.example.dependencymanageandroid.domain.UserListUseCase
 import com.example.dependencymanageandroid.presentation.UserListScreen
 import com.example.dependencymanageandroid.presentation.UserViewModel
 import com.example.dependencymanageandroid.ui.theme.DependencyManageAndroidTheme
-import org.koin.androidx.compose.koinViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +29,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    val viewModel: UserViewModel = koinViewModel()
+                    val viewModel: UserViewModel by viewModel()
                    UserListScreen(userListState = viewModel.state.value )
                 }
             }

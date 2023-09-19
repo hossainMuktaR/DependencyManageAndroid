@@ -11,6 +11,8 @@ compose-bom = "2023.03.00"
 #custom added
 lifecycle-viewmodel = "2.4.0"
 koin_compse = "3.4.3"
+kotlin-ksp = "1.9.0-1.0.12"
+koin-ksp-version = "1.2.0"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -30,10 +32,14 @@ material3 = { group = "androidx.compose.material3", name = "material3" }
 #custom added
 viewModel-lifecycle = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle-viewmodel"}
 koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin_compse"}
+koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "koin-ksp-version"}
+koin-ksp-compiler = { module = "io.insert-koin:koin-ksp-compiler", version.ref = "koin-ksp-version"}
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "agp" }
 org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "org-jetbrains-kotlin-android" }
+#custom added
+google-devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "kotlin-ksp" }
 
 [bundles]
 

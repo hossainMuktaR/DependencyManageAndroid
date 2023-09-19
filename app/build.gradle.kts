@@ -2,6 +2,8 @@
 plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
+
+    id(libs.plugins.google.devtools.ksp.get().pluginId)
 }
 
 android {
@@ -69,6 +71,10 @@ dependencies {
     debugImplementation(libs.ui.test.manifest)
 
     implementation(libs.viewModel.lifecycle)
+    //koin
     implementation(libs.koin.compose)
+    implementation(libs.koin.annotations)
+    ksp(libs.koin.ksp.compiler)
+
 
 }
