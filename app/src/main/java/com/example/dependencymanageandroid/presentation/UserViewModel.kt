@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 
 class UserViewModel(
     private val useCase: UserListUseCase
-): ViewModel(), ViewModelProvider.Factory {
+): ViewModel(){
     private val _state = mutableStateOf(UserListState())
     val state: State<UserListState> = _state
 

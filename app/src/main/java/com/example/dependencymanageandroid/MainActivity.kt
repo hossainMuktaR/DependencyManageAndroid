@@ -11,8 +11,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.dependencymanageandroid.data.DemoApi
 import com.example.dependencymanageandroid.data.UserRepositoryImpl
 import com.example.dependencymanageandroid.domain.UserListUseCase
